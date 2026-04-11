@@ -1,5 +1,5 @@
 <?php get_header(); ?>
 
-<h1 class="text-red">Hello world</h1>
+<h1>Default fallback</h1>
 
 <?php get_footer(); ?>
