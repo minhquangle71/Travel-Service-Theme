@@ -60,3 +60,18 @@ function theme_assets()
     wp_enqueue_style('travelservice-fallback-style', $theme_uri . '/style.css', [], wp_get_theme()->get('Version'));
 }
 add_action('wp_enqueue_scripts', 'theme_assets');
+
+function travelservice_module_scripts($tag, $handle, $src)
+{
+    $module_handles = [
+        'travelservice-vite-client',
+        'travelservice-main-js',
+    ];
+
+    if (in_array($handle, $module_handles, true)) {
+        return '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+
+    return $tag;
+}
+add_filter('script_loader_tag', 'travelservice_module_scripts', 10, 3);

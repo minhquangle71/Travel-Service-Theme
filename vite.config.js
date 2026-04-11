@@ -19,29 +19,34 @@ const wordpressOrigins = [
   `https://localhost:${wpPort}`,
 ];
 
-module.exports = defineConfig({
-  server: {
-    host: "0.0.0.0",
-    port: vitePort,
-    strictPort: true,
-    origin: `${viteProtocol}://${viteHost}:${vitePort}`,
-    cors: {
-      origin: wordpressOrigins,
-      credentials: true,
-    },
-    hmr: {
-      host: viteHost,
+module.exports = defineConfig(async () => {
+  const { default: tailwindcss } = await import("@tailwindcss/vite");
+
+  return {
+    plugins: [tailwindcss()],
+    server: {
+      host: "0.0.0.0",
       port: vitePort,
-      protocol: viteProtocol === "https" ? "wss" : "ws",
-      clientPort: vitePort,
+      strictPort: true,
+      origin: `${viteProtocol}://${viteHost}:${vitePort}`,
+      cors: {
+        origin: wordpressOrigins,
+        credentials: true,
+      },
+      hmr: {
+        host: viteHost,
+        port: vitePort,
+        protocol: viteProtocol === "https" ? "wss" : "ws",
+        clientPort: vitePort,
+      },
     },
-  },
-  build: {
-    outDir: "assets/dist",
-    emptyOutDir: true,
-    manifest: true,
-    rollupOptions: {
-      input: path.resolve(__dirname, "assets/src/main.js"),
+    build: {
+      outDir: "assets/dist",
+      emptyOutDir: true,
+      manifest: true,
+      rollupOptions: {
+        input: path.resolve(__dirname, "assets/src/main.js"),
+      },
     },
-  },
+  };
 });
