@@ -1,0 +1,15 @@
+/*   
+Theme Name: Travel Service
+Description: I built this theme for my personal project. I want to create a website for travel service. I hope you like it.
+Author: Le Van Minh Quang
+Author URI: https://github.com/minhquangle71
+Version: 1.0
+*/
+
+@import "tailwindcss";
+
+/* Theme-level defaults applied after Tailwind layers load. */
+body {
+  margin: 0;
+  min-height: 100vh;
+}
