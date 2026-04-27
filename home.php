@@ -1,7 +1,15 @@
-<?php get_header();  ?>
+<?php get_header(); ?>
 
-<div class="container mx-auto py-10">
-    <h1 class="text-3xl mb-6">Blog</h1>
-</div>
+<main class="bg-gray-50 min-h-screen">
+
+    <!-- Hero Section -->
+    <?php get_template_part('template-parts/blog/hero'); ?>
+
+    <!-- Blog Grid -->
+    <?php get_template_part('template-parts/blog/list'); ?>
+
+    <!-- Gallery Slider -->
+    <?php get_template_part('template-parts/gallery/slider'); ?>
+</main>
 
 <?php get_footer(); ?>

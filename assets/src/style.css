@@ -13,3 +13,20 @@ body {
   margin: 0;
   min-height: 100vh;
 }
+
+#primary-menu {
+  @apply flex items-center space-x-6;
+}
+
+#primary-menu li {
+  @apply list-none;
+}
+
+#primary-menu ul {
+  @apply flex;
+  @apply gap-x-6;
+}
+
+#primary-menu a {
+  @apply text-sm font-medium text-gray-700 hover:text-indigo-600 transition;
+}
